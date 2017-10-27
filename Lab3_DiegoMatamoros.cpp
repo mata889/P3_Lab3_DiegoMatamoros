@@ -2,16 +2,22 @@
 #include <new>
 #include <cstdlib>
 #include <vector>
+#include <stdlib.h>
+#include <sstream>
+#include <string>
 
 using namespace std;
 
-int [] polinomios(int,int);
+int* polinomios(int,int);
 
 int*** crearMatriz(int size);
 void eliminarMatriz(int***,int);
+void imprimirMatriz(int***,int);
+
 
 int main(){
 int menu;
+int*** Matrix;
 
 do{
 	cout<<"----menu----"<<endl
@@ -30,15 +36,22 @@ do{
 		int a;
 		cout<<"ingrese el grado mas alto del polinomio:";
 		cin>> gradoalto;
-		gradoalto++;
+		//gradoalto++;
 		cout<<"ingrese a:";
 		cin>> a;
 		cout<<endl;
 		polinomios(gradoalto,a);
-				
+		Matrix=crearMatriz(gradoalto);
+		imprimirMatriz(Matrix,gradoalto);	
+						
 	 }break;
 
-	case 3:{}break;
+	case 3:{
+		vector<string> fecha;
+		cout<<"introduzca la fecha deseada(20170201 )"<<endl;
+		cin>>fecha;		
+		
+	}break;
 	}
 
 }while(menu!=4);
@@ -47,21 +60,21 @@ return 0;
 
 }
 
-int[] polinomios(int gradoalto,int a){	
-	int  polinomios[gradoalto];
+int* polinomios(int gradoalto,int a){	
+	int* polinomio;
 	
-	for(int i=gradoalto;i>0;i--){
+	for(int i=gradoalto;i>=0;i--){
 		int algo;
 		cout<<"Ingrese el polinomio x^"<<i<<":"<<endl;
 		cin>>algo;
-		polinomios[i]=algo;
+		polinomio[i]=algo;
              }
 	//probando los polinomios ingresado
-	for(int j=gradoalto;j>0;j--){
-	//	cout<<polinomios[j]<<"--"<<endl;
+	for(int j=gradoalto;j>0;j--)
+	//	cout<<polinomio[j]<<"-";
 
-	}
-return polinomios;
+	
+return polinomio;
 }
 
 int*** crearMatriz(int size){
@@ -89,4 +102,14 @@ void eliminarMatriz(int*** matriz,int size){
 	delete[] matriz;
 	return;
 }
+
+void imprimirMatriz(int*** matriz,int n){
+	for(int i=0;i<n;i++){
+		for(int j=0;j<3;j++){
+			cout<<"["<<matriz[i][j]<<"}";
+		}
+		cout<<endl;
+	}
+}
+
 
