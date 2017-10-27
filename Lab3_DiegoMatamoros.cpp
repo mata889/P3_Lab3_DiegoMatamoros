@@ -1,10 +1,11 @@
 #include <iostream>
 #include <new>
 #include <cstdlib>
+#include <vector>
 
 using namespace std;
 
-void polinomios(int,int);
+int [] polinomios(int,int);
 
 int*** crearMatriz(int size);
 void eliminarMatriz(int***,int);
@@ -46,7 +47,7 @@ return 0;
 
 }
 
-void polinomios(int gradoalto,int a){	
+int[] polinomios(int gradoalto,int a){	
 	int  polinomios[gradoalto];
 	
 	for(int i=gradoalto;i>0;i--){
@@ -58,7 +59,9 @@ void polinomios(int gradoalto,int a){
 	//probando los polinomios ingresado
 	for(int j=gradoalto;j>0;j--){
 	//	cout<<polinomios[j]<<"--"<<endl;
+
 	}
+return polinomios;
 }
 
 int*** crearMatriz(int size){
@@ -86,3 +89,4 @@ void eliminarMatriz(int*** matriz,int size){
 	delete[] matriz;
 	return;
 }
+
