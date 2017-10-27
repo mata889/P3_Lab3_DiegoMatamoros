@@ -6,7 +6,7 @@ using namespace std;
 
 void polinomios(int,int);
 
-int** crearMatriz(int size);
+int*** crearMatriz(int size);
 void eliminarMatriz(int***,int);
 
 int main(){
@@ -55,8 +55,34 @@ void polinomios(int gradoalto,int a){
 		cin>>algo;
 		polinomios[i]=algo;
              }
+	//probando los polinomios ingresado
 	for(int j=gradoalto;j>0;j--){
-		cout<<polinomios[j]<<"--"<<endl;
+	//	cout<<polinomios[j]<<"--"<<endl;
 	}
 }
 
+int*** crearMatriz(int size){
+	int***matriz = new int**[size];
+	for(int i=0;i<size;i++){
+		matriz[i]= new int*[3];
+	}
+	for(int i=0;i<size;i++){
+		for(int j=0;j<3;j++){
+			matriz[i][j]=new int[size];
+		}
+	}
+return matriz;
+}
+
+void eliminarMatriz(int*** matriz,int size){
+	for(int i=0;i<size;i++){
+		for(int j=0;j<3;j++){
+			delete[] matriz[i][j];
+		}
+	}
+	for(int i=0;i<size;i++){
+		delete[] matriz[i];
+	}
+	delete[] matriz;
+	return;
+}
