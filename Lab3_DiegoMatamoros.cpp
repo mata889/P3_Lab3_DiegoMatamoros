@@ -6,6 +6,9 @@ using namespace std;
 
 void polinomios(int,int);
 
+int** crearMatriz(int size);
+void eliminarMatriz(int***,int);
+
 int main(){
 int menu;
 
@@ -44,15 +47,16 @@ return 0;
 }
 
 void polinomios(int gradoalto,int a){	
-	int polinomios[gradoalto];
-	for(int i=gradoalto;i>0;i--){
-		cout<<"Ingrese el polinomio x^"<<i<<":"<<endl;
-		cin>>polinomios[i];
-             }
-	cout<<"el cociente es:";
-	for(int j=0;j<gradoalto;j++){
-		
-	}
-
+	int  polinomios[gradoalto];
 	
+	for(int i=gradoalto;i>0;i--){
+		int algo;
+		cout<<"Ingrese el polinomio x^"<<i<<":"<<endl;
+		cin>>algo;
+		polinomios[i]=algo;
+             }
+	for(int j=gradoalto;j>0;j--){
+		cout<<polinomios[j]<<"--"<<endl;
+	}
 }
+
