@@ -1,5 +1,7 @@
 #include <iostream>
 #include <new>
+#include <cstdlib>
+
 using namespace std;
 
 void polinomios(int,int);
@@ -22,10 +24,12 @@ do{
 	case 2:{
 		int gradoalto;
 		int a;
-		cout<<"ingrese el grado mas alto del polinomio";
+		cout<<"ingrese el grado mas alto del polinomio:";
 		cin>> gradoalto;
-		cout<<"ingrese a:"<<endl;
-		cin>a;
+		gradoalto++;
+		cout<<"ingrese a:";
+		cin>> a;
+		cout<<endl;
 		polinomios(gradoalto,a);
 				
 	 }break;
@@ -41,13 +45,13 @@ return 0;
 
 void polinomios(int gradoalto,int a){	
 	int polinomios[gradoalto];
-	for(int i=0;i<gradoalto;i++){
+	for(int i=gradoalto;i>0;i--){
 		cout<<"Ingrese el polinomio x^"<<i<<":"<<endl;
 		cin>>polinomios[i];
              }
 	cout<<"el cociente es:";
 	for(int j=0;j<gradoalto;j++){
-		cout<<
+		
 	}
 
 	
