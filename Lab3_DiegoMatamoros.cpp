@@ -13,6 +13,7 @@ int* polinomios(int,int);
 int*** crearMatriz(int size);
 void eliminarMatriz(int***,int);
 void imprimirMatriz(int***,int);
+int*** meterMatriz(int***,int );
 std::vector<string> Vector(string);
 
 int main(){
@@ -41,8 +42,11 @@ do{
 		cin>> a;
 		cout<<endl;
 		polinomios(gradoalto,a);
+		//eliminarMatriz(Matrix,gradoalto);
 		Matrix=crearMatriz(gradoalto);
-		imprimirMatriz(Matrix,gradoalto);	
+		meterMatriz(Matrix,gradoalto);
+		imprimirMatriz(Matrix,gradoalto);
+					
 						
 	 }break;
 
@@ -255,15 +259,28 @@ return polinomio;
 int*** crearMatriz(int size){
 	int***matriz = new int**[size];
 	for(int i=0;i<size;i++){
-		matriz[i]= new int*[3];
+		matriz[i]= new int*[size];
 	}
 	for(int i=0;i<size;i++){
 		for(int j=0;j<3;j++){
-			matriz[i][j]=new int[size];
+			matriz[i][j]=new int[3];
 		}
 	}
+	
 return matriz;
 }
+
+int*** meterMatriz(int***matriz,int size){
+for(int i=0;i<size;i++){
+	for(int j=0;j<3;j++){
+		for(int k=0;k<size;k++){
+			matriz[i][j][k]=0;
+			}
+		}
+	}
+	
+}
+
 
 void eliminarMatriz(int*** matriz,int size){
 	for(int i=0;i<size;i++){
@@ -281,7 +298,10 @@ void eliminarMatriz(int*** matriz,int size){
 void imprimirMatriz(int*** matriz,int n){
 	for(int i=0;i<n;i++){
 		for(int j=0;j<3;j++){
-			cout<<"["<<matriz[i][j]<<"}";
+			for(int k=0;k<n;k++){
+				cout<<"["<<matriz[i][j]<<"}";
+			}
+			cout<<endl;
 		}
 		cout<<endl;
 	}
